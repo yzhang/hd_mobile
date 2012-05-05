@@ -54,7 +54,7 @@ class HostelsList extends Panel
         $('.global-spinner').hide()
 
   show: (e) =>
-    hostel = $(e.target).closest('div').item()
+    hostel = $(e.target).closest('.hostel').item()
     @navigate('/hostels', hostel.id, trans: 'right')
 
   # 
