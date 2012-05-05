@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'hostel_daren' target in the 'hostel_daren' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
