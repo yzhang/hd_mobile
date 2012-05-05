@@ -1,0 +1,3 @@
+<div class="item">
+  <span><%= @name %></span>
+</div>

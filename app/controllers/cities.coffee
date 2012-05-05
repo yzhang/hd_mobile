@@ -27,8 +27,6 @@ class CitiesList extends Panel
 
     @cities = [shanghai, beijing, chengdu, xiamen]
 
-    @addButton('我的收藏', @favirates).addClass('right')
-
   render: =>
     @html require('views/cities/city')(@cities)
 
