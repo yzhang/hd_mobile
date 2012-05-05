@@ -10,8 +10,8 @@
 	</div>
 
     <div class="meta">
-      <span class="district"><%= @district %></span>
-      <span class="comments">评论(5)</span>
+      <span class="district"><img src="images/map.png"></img><%= @district %>&nbsp;</span>
+      <span class="comments"><img src="images/comment.png"></img>&nbsp;评论(<%= @comments_count %>)</span>
     </div>
   </div>
 </div>

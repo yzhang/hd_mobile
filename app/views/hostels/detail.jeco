@@ -10,18 +10,33 @@
 </div>
 
 <div>
-  <h1>旅舍房间</h1>
-  <% for room in @rooms :%>
-    <p><%= room.name %></p>
-    <p>￥<%= room.price %></p>
-  <% end %>
+	    <p>
+		
+		<table>
+			  <h1>旅舍房间</h1>
+
+				  <% for room in @rooms :%>
+							<tr>
+				
+				<td><%= room.name %> </td>
+
+				<td><span id="red">￥<%= room.price %></span></td>
+				
+							</tr>
+				  <% end %>
+
+
+			
+		</table>
+
+</p>
 </div>
 
 <div>
   <h1>交通路线</h1>
   <% for transport in @transports :%>
     <p>
-      <%= transport.name %>: 
+      <%= transport.name %>:
       <%= transport.to %>
     </p>
   <% end %>
@@ -39,4 +54,12 @@
 
 
 <div>
+  <h1>评论（共<%= @comments_count %>条）</h1>
+  <p class="show-comments" data-hostel-id="<%= @id %>">
+    <span><%= @last_comment %></span>
+  </p>
+</div>
+
+
+</div>
  
