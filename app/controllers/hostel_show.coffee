@@ -43,7 +43,6 @@ class HostelShow extends Panel
     @render()
 
   showComments: (e) =>
-    hostel_id = $(e.target).data('hostel-id')
-    @navigate('/hostels', hostel_id, 'comments', trans: 'right')
+    @navigate('/hostels', @hostel.id, 'comments', trans: 'right')
 
 module.exports = HostelShow
