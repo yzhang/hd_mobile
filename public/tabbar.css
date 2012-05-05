@@ -14,6 +14,9 @@
   	width: 100%;
   	z-index: 100 !important;
  	/*-webkit-box-shadow: 0 -0.05em 0 rgba(0,0,0,0.9); */
+	margin:0 !important;
+	padding:0 !important;
+	
 
 }
 
@@ -57,11 +60,11 @@
 
 #tabbar .badge.left {
   left: auto;
-  right: 54%;
+  right: auto;
 }
 
 #tabbar .badge.right {
-  left: 54%;
+  left: auto;
   right: auto;
 }
 
