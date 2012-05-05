@@ -14,8 +14,8 @@
   	width: 100%;
   	z-index: 100 !important;
  	/*-webkit-box-shadow: 0 -0.05em 0 rgba(0,0,0,0.9); */
-	margin:0 !important;
-	padding:0 !important;
+	margin:0;
+	padding:0;
 	
 
 }

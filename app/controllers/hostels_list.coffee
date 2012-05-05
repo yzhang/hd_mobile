@@ -10,6 +10,8 @@ class HostelsList extends Panel
 
     super
 
+
+
     @addButton('地图', @map).addClass('right')
 
     #Hostel.fetch()
@@ -20,6 +22,7 @@ class HostelsList extends Panel
   map: =>
     @navigate("/cities/shanghai/map", trans: 'right')
 
+	
   render: =>
     @hostels = Hostel.all()
     $(".hostel_count").text(@hostels.length)
@@ -53,6 +56,7 @@ class HostelsList extends Panel
         @render()
       complete: ->
         $('.global-spinner').hide()
+
 
   show: (e) =>
     hostel = $(e.target).closest('.hostel').item()
