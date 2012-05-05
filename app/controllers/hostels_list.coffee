@@ -1,7 +1,7 @@
 {Panel}    = require('spine.mobile')
 
 class HostelsList extends Panel
-  title: '上海'
+  title: '上海(<span class="hostel_count"></span>)'
   
   events:
     'tap .hostel' : 'show'
@@ -41,7 +41,7 @@ class HostelsList extends Panel
 
   render: =>
     @hostels = Hostel.all()
-     # if @hostels.length == 0
+    $(".hostel_count").text(@hostels.length)
     @html require('views/hostels/hostel')(@hostels)
   
   change: (params) =>
