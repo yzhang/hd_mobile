@@ -2,13 +2,13 @@
 
 class CitiesList extends Panel
   title: '选择城市'
-  
+
   events:
     'tap .city': 'click'
 
   constructor: ->
     super
-    shanghai = 
+    shanghai =
       name: '上海'
       slug: 'shanghai'
     beijing =
@@ -20,23 +20,23 @@ class CitiesList extends Panel
     xiamen =
       name: '厦门'
       slug: 'xiamen'
-    
+
     @active (params) =>
       $('.stage>footer').hide()
       @render()
 
     @cities = [shanghai, beijing, chengdu, xiamen]
-    
+
     @addButton('我的收藏', @favirates).addClass('right')
 
   render: =>
     @html require('views/cities/city')(@cities)
-  
+
   click: (e) =>
     item = $(e.target).item()
     @navigate('/cities', item.slug, trans: 'right')
 
   favirates: ->
     @navigate('/favirates', trans: 'right')
-    
+
 module.exports = CitiesList

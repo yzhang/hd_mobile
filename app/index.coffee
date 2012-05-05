@@ -16,13 +16,13 @@ class App extends Stage.Global
   events:
     'tap .cities' : 'cities'
     'tap .hostels' : 'hostels'
-  
+
   cities:  => @navigate('/cities', trans: 'left')
   hostels: => @navigate('/cities/shanghai', trans: 'left')
 
   constructor: ->
     super
-    
+
     $('.stage>footer').append("<div class='buttons'></div>")
     $('.stage>footer .buttons').append("<button class='hostels btn'>所有旅舍</button>")
     $('.stage>footer .buttons').append("<button class='favirates btn'>我的收藏</button>")
@@ -41,5 +41,12 @@ class App extends Stage.Global
 
 
     Spine.Route.setup()
+
+  showSpinner: ->
+    $('.global-spinner').show()
+
+  hideSpinner: ->
+    $('.global-spinner').hide()
+
 
 module.exports = App

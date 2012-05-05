@@ -2,22 +2,24 @@
 
 class HostelsList extends Panel
   title: '上海(<span class="hostel_count"></span>)'
-  
+
   events:
     'tap .hostel' : 'show'
-    
+
   constructor: (city) ->
-    
+
     super
-    
+
     @addButton('地图', @map).addClass('right')
 
     #Hostel.fetch()
     #@hostels = @buildTestHostels()
-    
+
     $.ajax
       url: 'http://heikezhi.com:8080/api/v1/cities/%E4%B8%8A%E6%B5%B7.json'
       type: 'get'
+      beforeSend: ->
+        $('.global-spinner').show()
       success: (data) ->
         for h in data.hostels
           hostel = new Hostel
@@ -35,6 +37,8 @@ class HostelsList extends Panel
           traffic   = new TrafficRoute
           traffic.load(t)
           traffic.save()
+      complete: ->
+        $('.global-spinner').hide()
 
     @active @change
 
@@ -42,11 +46,11 @@ class HostelsList extends Panel
     @hostels = Hostel.all()
     $(".hostel_count").text(@hostels.length)
     @html require('views/hostels/hostel')(@hostels)
-  
+
   change: (params) =>
     $('.stage>footer').show()
     @render()
-    
+
   show: (e) =>
     hostel = $(e.target).closest('div').item()
     @navigate('/hostels', hostel.id, trans: 'right')
@@ -62,9 +66,9 @@ class HostelsList extends Panel
       address: '黄浦区外滩'
       phone_number: '021-65542380'
       m_w: true
-    
+
     hostel1.save()
-    
+
     Room.create
       hostel_id: hostel1.id
       name: '6人间'
@@ -75,7 +79,7 @@ class HostelsList extends Panel
       name: '4人间'
       price: 60
       member_price: 65
-    
+
     hostel2 = new Hostel
       id: 2
       name: '上海测试青旅#2'
@@ -86,7 +90,7 @@ class HostelsList extends Panel
       address: '徐汇区徐家汇'
       phone_number: '021-65542380'
       m_w: true
-      
+
     hostel2.save()
 
     Room.create
@@ -99,24 +103,24 @@ class HostelsList extends Panel
       name: '4人间'
       price: 100
       member_price: 90
-    
+
     place1 = Place.create
       name: '东方明珠'
       desc: '恩，就是那个很错他的电视塔'
       landscape: true
-    
+
     place2 = Place.create
       name: '上海南站'
       desc: '恩，就是上海那个新火车站'
       landscape: false
-    
+
     TrafficRoute.create
       hostel_id: hostel1.id
       place_id:  place1.id
       desc:      '这个应该是什么描述'
       from_hostel:      '从旅馆去应该这么走'
       to_hostel:        '到旅馆去应该这么走'
-    
+
     TrafficRoute.create
       hostel_id: hostel1.id
       place_id:  place2.id
