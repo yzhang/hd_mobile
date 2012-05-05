@@ -15,12 +15,21 @@ class HostelsList extends Panel
     #Hostel.fetch()
     #@hostels = @buildTestHostels()
 
+    @active @change
+
+  render: =>
+    @hostels = Hostel.all()
+    $(".hostel_count").text(@hostels.length)
+    @html require('views/hostels/hostel')(@hostels)
+
+  change: (params) =>
+    $('.stage>footer').show()
     $.ajax
       url: 'http://heikezhi.com:8080/api/v1/cities/%E4%B8%8A%E6%B5%B7.json'
       type: 'get'
       beforeSend: ->
         $('.global-spinner').show()
-      success: (data) ->
+      success: (data) =>
         for h in data.hostels
           hostel = new Hostel
           hostel.load(h)
@@ -37,19 +46,9 @@ class HostelsList extends Panel
           traffic   = new TrafficRoute
           traffic.load(t)
           traffic.save()
+        @render()
       complete: ->
         $('.global-spinner').hide()
-
-    @active @change
-
-  render: =>
-    @hostels = Hostel.all()
-    $(".hostel_count").text(@hostels.length)
-    @html require('views/hostels/hostel')(@hostels)
-
-  change: (params) =>
-    $('.stage>footer').show()
-    @render()
 
   show: (e) =>
     hostel = $(e.target).closest('div').item()

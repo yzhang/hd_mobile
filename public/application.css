@@ -2,6 +2,13 @@ body,
 html {
   height: 100%;
 }
+.global-spinner {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
 .viewport {
   position: relative;
 }
