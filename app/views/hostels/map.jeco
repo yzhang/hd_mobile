@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  var myOptions = {
+    center: new google.maps.LatLng(31.22205, 121.482353),
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map_canvas"),
+      myOptions);
+      
+  <% for hostel in @hostels :%>
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng("<%= hostel.latitude %>", "<%= hostel.longitude %>"),
+        map: map,
+        title: "<%= hostel.name %>"
+    });
+  <% end %>
+</script>
+<div id="map_canvas"></div>
