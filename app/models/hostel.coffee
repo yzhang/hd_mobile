@@ -1,7 +1,8 @@
 Spine = require('spine')
 
 class @Hostel extends Spine.Model
-  @configure "Hostel", "name", "city", "desc", "equipment", "main_photo", "is_yha", "address", "phone_number", "m_w", "latitude", 'longitude'
+  @configure "Hostel", "name", "city", "desc", "district", "equipment", "logo_url", "photo_url", "yha", "address", "phone_number", "minimum_price", "latitude", 'longitude'
+
   @extend    Spine.Model.Local
-  
+
 module.exports = Hostel
