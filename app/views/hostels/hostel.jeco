@@ -1,6 +1,11 @@
 <div class="hostel">
-  <span><%= @name %></span>
-  <span><%= @address %></span>
-  <span><%= @equipment %></span>
-  <span><%= @phone_number %></span>
+  <div class="photo"><img src="<%= @logo_url %>" /></div>
+  <div class="wrapper">
+    <div class="name"><%= @name %></div>
+    <div class="minimum-price">¥<%= @minimum_price %>起</div>
+    <div class="meta">
+      <span class="district"><%= @district %></span>
+      <span class="comments">评论(5)</span>
+    </div>
+  </div>
 </div>
