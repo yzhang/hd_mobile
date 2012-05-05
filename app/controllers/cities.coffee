@@ -22,7 +22,7 @@ class CitiesList extends Panel
       slug: 'xiamen'
 
     @active (params) =>
-      $('.stage>footer').hide()
+      $('nav').hide()
       @render()
 
     @cities = [shanghai, beijing, chengdu, xiamen]

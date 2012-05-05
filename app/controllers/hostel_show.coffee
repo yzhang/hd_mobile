@@ -19,7 +19,7 @@ class HostelShow extends Panel
     @html require('views/hostels/detail')(@hostel)
   
   change: (params) =>
-    $('.stage>footer').show()
+    $('nav').show()
     @hostel = Hostel.find(params.id)
     $(".hostel_name").text(@hostel.name)
     @hostel.rooms      = Room.findAllByAttribute('hostel_id', parseInt(params.id))

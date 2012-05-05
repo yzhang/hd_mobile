@@ -23,11 +23,10 @@ class App extends Stage.Global
 
   constructor: ->
     super
-
-    $('.stage>footer').append("<div class='buttons'></div>")
-    $('.stage>footer .buttons').append("<button class='hostels btn'>所有旅舍</button>")
-    $('.stage>footer .buttons').append("<button class='favirates btn'>我的收藏</button>")
-    $('.stage>footer .buttons').append("<button class='cities btn'>切换城市</button>")
+    $('body').append('<nav id="tabbar"><ul></ul></nav>')
+    $('nav ul').append('<li><a href="#home" class="current flip hostels"><strong>所有旅社</strong><div class="home"></div></a></li>')
+    $('nav ul').append('<li><a href="#categories" class="flip"><strong>我的收藏</strong><div class="rss"></div></a></li>')
+    $('nav ul').append('<li><a href="#more" class="flip cities"><strong>切换城市</strong><div class="flickr"></div></a></li>')
 
     @citiesList = new CitiesList()
     @citiesList.active()
