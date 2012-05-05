@@ -25,6 +25,7 @@ body, html
 
 body.stage
   > header
+
     position: absolute
     left: 0
     top: 0
@@ -39,6 +40,7 @@ body.stage
 
   > footer
     position: absolute
+	display: none
     left: 0
     bottom: 0
     right: 0
@@ -52,8 +54,16 @@ body.stage
     overflow: auto
     -webkit-overflow-scrolling: touch
 
+img
+  border-radius: 5px
+
+li,ul
+	margin:6px
+	padding:0px
+
+
 @import './theme'
 
 @import './views/city'
-@import './views/hostel'
 @import './views/map'
+@import './views/hostel'

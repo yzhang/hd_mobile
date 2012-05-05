@@ -26,7 +26,7 @@ class HostelsList extends Panel
     @html require('views/hostels/hostel')(@hostels)
 
   change: (params) =>
-    $('.stage>footer').show()
+    $('nav').show()
     $.ajax
       url: 'http://heikezhi.com:8080/api/v1/cities/%E4%B8%8A%E6%B5%B7.json'
       type: 'get'
@@ -35,6 +35,7 @@ class HostelsList extends Panel
       success: (data) =>
         for h in data.hostels
           hostel = new Hostel
+          h.minimum_price ||= h.id * 5 + 30
           hostel.load(h)
           hostel.save()
         for r in data.rooms
