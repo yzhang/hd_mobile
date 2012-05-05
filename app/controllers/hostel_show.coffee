@@ -26,12 +26,12 @@ class HostelShow extends Panel
     @hostel.spots      = []
     @hostel.transports = []
     
-    traffics = Traffic.findAllByAttribute('hostel_id', parseInt(params.id))
+    traffics = TrafficRoute.findAllByAttribute('hostel_id', parseInt(params.id))
     
     for t in traffics
       p = Place.find(t.place_id)
-      p.from = t.from
-      p.to   = t.to
+      p.from = t.from_hostel
+      p.to   = t.to_hostel
       if p.landscape
         @hostel.spots.push(p)
       else

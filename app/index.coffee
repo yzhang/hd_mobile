@@ -5,7 +5,7 @@ Spine      = require('spine')
 
 Room       = require('models/room')
 Place      = require('models/place')
-Traffic     = require('models/traffic')
+TrafficRoute = require('models/traffic_route')
 Hostel     = require('models/hostel')
 
 CitiesList  = require('controllers/cities')

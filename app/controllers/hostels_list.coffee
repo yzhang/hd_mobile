@@ -13,12 +13,34 @@ class HostelsList extends Panel
     @addButton('地图', @map).addClass('right')
 
     #Hostel.fetch()
-    @hostels = @buildTestHostels()
+    #@hostels = @buildTestHostels()
     
+    $.ajax
+      url: 'http://heikezhi.com:8080/api/v1/cities/%E4%B8%8A%E6%B5%B7.json'
+      type: 'get'
+      success: (data) ->
+        for h in data.hostels
+          hostel = new Hostel
+          hostel.load(h)
+          hostel.save()
+        for r in data.rooms
+          room   = new Room
+          room.load(r)
+          room.save()
+        for p in data.places
+          place   = new Place
+          place.load(p)
+          place.save()
+        for t in data.traffic_routes
+          traffic   = new TrafficRoute
+          traffic.load(t)
+          traffic.save()
+        console.log 'data loaded'
+
     @active @change
 
   render: =>
-    #@hostels = Hostel.all()
+    @hostels = Hostel.all()
      # if @hostels.length == 0
     @html require('views/hostels/hostel')(@hostels)
   
@@ -89,19 +111,19 @@ class HostelsList extends Panel
       desc: '恩，就是上海那个新火车站'
       landscape: false
     
-    Traffic.create
+    TrafficRoute.create
       hostel_id: hostel1.id
       place_id:  place1.id
       desc:      '这个应该是什么描述'
-      from:      '从旅馆去应该这么走'
-      to:        '到旅馆去应该这么走'
+      from_hostel:      '从旅馆去应该这么走'
+      to_hostel:        '到旅馆去应该这么走'
     
-    Traffic.create
+    TrafficRoute.create
       hostel_id: hostel1.id
       place_id:  place2.id
       desc:      '这个应该是什么描述'
-      from:      '从旅馆去应该这么走'
-      to:        '到旅馆去应该这么走'
+      from_hostel:      '从旅馆去应该这么走'
+      to_hostel:        '到旅馆去应该这么走'
 
     [hostel1, hostel2]
 
