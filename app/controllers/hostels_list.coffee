@@ -35,6 +35,7 @@ class HostelsList extends Panel
       success: (data) =>
         for h in data.hostels
           hostel = new Hostel
+          h.minimum_price ||= h.id * 5 + 30
           hostel.load(h)
           hostel.save()
         for r in data.rooms
