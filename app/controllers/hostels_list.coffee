@@ -35,7 +35,6 @@ class HostelsList extends Panel
           traffic   = new TrafficRoute
           traffic.load(t)
           traffic.save()
-        console.log 'data loaded'
 
     @active @change
 
