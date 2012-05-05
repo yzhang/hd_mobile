@@ -17,7 +17,7 @@
   <h1>交通路线</h1>
   <% for transport in @transports :%>
     <p>
-      <%= transport.name %>: 
+      <%= transport.name %>:
       <%= transport.to %>
     </p>
   <% end %>
@@ -31,4 +31,11 @@
       <%= spot.from %>
     </p>
   <% end %>
+</div>
+
+<div class="rooms">
+  <h1>评论（共<%= @comments_count %>条）</h1>
+  <p class="show-comments" data-hostel-id="<%= @id %>">
+    <span><%= @last_comment %></span>
+  </p>
 </div>

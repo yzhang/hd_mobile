@@ -7,11 +7,13 @@ Room         = require('models/room')
 Place        = require('models/place')
 TrafficRoute = require('models/traffic_route')
 Hostel       = require('models/hostel')
+Comment      = require('models/comment')
 
 CitiesList  = require('controllers/cities')
 HostelsList = require('controllers/hostels_list')
 HostelsMap = require('controllers/hostels_map')
 HostelShow  = require('controllers/hostel_show')
+CommentsList = require('controllers/comments_list')
 
 class App extends Stage.Global
   events:
@@ -32,15 +34,17 @@ class App extends Stage.Global
     @citiesList = new CitiesList()
     @citiesList.active()
 
-    @hostelsList = new HostelsList
-    @hostelsMap  = new HostelsMap
-    @hostelShow  = new HostelShow
+    @hostelsList  = new HostelsList
+    @hostelsMap   = new HostelsMap
+    @hostelShow   = new HostelShow
+    @commentsList = new CommentsList
 
     @routes
-      '/cities/:slug': (params)     -> @hostelsList.active(params)
-      '/cities/:slug/map': (params) -> @hostelsMap.active(params)
-      '/hostels/:id':  (params)     -> @hostelShow.active(params)
-      '/cities': (params)           -> @citiesList.active()
+      '/cities/:slug':         (params) -> @hostelsList.active(params)
+      '/cities/:slug/map':     (params) -> @hostelsMap.active(params)
+      '/hostels/:id':          (params) -> @hostelShow.active(params)
+      '/hostels/:id/comments': (params) -> @commentsList.active(params)
+      '/cities':               (params) -> @citiesList.active()
 
 
     Spine.Route.setup()
