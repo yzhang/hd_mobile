@@ -6,12 +6,18 @@
   };
   var map = new google.maps.Map(document.getElementById("map_canvas"),
       myOptions);
-      
+  
+  var infowindow = new google.maps.InfoWindow();
+  
   <% for hostel in @hostels :%>
-    var marker = new google.maps.Marker({
+    var marker<%= hostel.id %> = new google.maps.Marker({
         position: new google.maps.LatLng("<%= hostel.latitude %>", "<%= hostel.longitude %>"),
-        map: map,
-        title: "<%= hostel.name %>"
+        map: map
+    });
+    
+    google.maps.event.addListener(marker<%= hostel.id %>, 'click', function() {
+      infowindow.content = "<a href='#/hostels/<%= hostel.id %>'><%= hostel.name %></a>"
+      infowindow.open(map, marker<%= hostel.id %>);
     });
   <% end %>
 </script>
