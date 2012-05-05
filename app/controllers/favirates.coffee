@@ -15,6 +15,8 @@ class FaviratesList extends Panel
 
     @active (params) =>
       $('nav').show()
+      $('nav .favirates').addClass('current')
+      $('nav .hostels').removeClass('current')
       @render()
 
   render: =>

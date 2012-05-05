@@ -27,6 +27,8 @@ class HostelsList extends Panel
 
   change: (params) =>
     $('nav').show()
+    $('nav .favirates').removeClass('current')
+    $('nav .hostels').addClass('current')
     $.ajax
       url: 'http://heikezhi.com:8080/api/v1/cities/%E4%B8%8A%E6%B5%B7.json'
       type: 'get'
