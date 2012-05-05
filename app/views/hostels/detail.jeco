@@ -1,0 +1,34 @@
+<div class="detail">
+  <h1>旅舍简介</h1>
+  <p>
+    <%= @desc %>
+  </p>
+</div>
+
+<div class="rooms">
+  <h1>旅舍房间</h1>
+  <% for room in @rooms :%>
+    <p><%= room.name %></p>
+    <p>￥<%= room.price %></p>
+  <% end %>
+</div>
+
+<div class="rooms">
+  <h1>交通路线</h1>
+  <% for transport in @transports :%>
+    <p>
+      <%= transport.name %>: 
+      <%= transport.to %>
+    </p>
+  <% end %>
+</div>
+
+<div class="rooms">
+  <h1>周边景点</h1>
+  <% for spot in @spots :%>
+    <p>
+      <%= spot.name %>:
+      <%= spot.from %>
+    </p>
+  <% end %>
+</div>

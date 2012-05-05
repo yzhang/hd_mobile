@@ -1,0 +1,6 @@
+<div class="hostel">
+  <span><%= @name %></span>
+  <span><%= @address %></span>
+  <span><%= @equipment %></span>
+  <span><%= @phone_number %></span>
+</div>

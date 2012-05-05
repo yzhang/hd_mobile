@@ -4,6 +4,7 @@ require('jqueryify')
 require('gfx')
 
 require('spine')
+require('lib/relation')
 require('spine/lib/local')
 require('spine/lib/ajax')
 require('spine/lib/manager')
