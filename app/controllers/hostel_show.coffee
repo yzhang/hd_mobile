@@ -9,7 +9,6 @@ class HostelShow extends Panel
     @active @change
     
     @addButton('后退', @back)
-    @addButton('地图', @map).addClass('right')
   
   back: =>
     @navigate('/cities/shanghai', trans: 'left')
