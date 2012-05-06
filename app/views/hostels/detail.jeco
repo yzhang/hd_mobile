@@ -4,12 +4,15 @@
 
 <div>
  <h1>旅舍简介</h1>
+
+	<span><img id="mian_desc" src="<%= @photo_url %>"  /></span>
   <p>
     <%= @desc %>
   </p>
   <p>
     <img src="images/old_phone.png"></img>&nbsp;&nbsp;<a href="tel:<%= @phone %>"><%= @phone %></a>
   </p>
+	<p class="p_button">添加收藏</p>
 </div>
 
 <div>
